@@ -677,7 +677,7 @@ body {
   position: absolute;
   top: 24px;
   right: 24px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 24px;
@@ -800,7 +800,7 @@ body {
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -826,6 +826,28 @@ body {
   fill: #f4f4fd;
 }
 
+/* Target any span inside the checkbox label */
+.modal-checkbox-label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Target checked state */
+.modal-checkbox:checked + .modal-checkbox-label span {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
 .modal-privacy-link {
   color: #4d5ae5;
   text-decoration: underline;
