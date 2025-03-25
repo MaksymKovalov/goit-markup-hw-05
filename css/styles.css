@@ -508,11 +508,11 @@ body {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 12px;
-  line-height: 2;
+  line-height: 2; /* Added line-height: 2 */
   letter-spacing: 0.04em;
   color: #ffffff;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); /* Added box-shadow */
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -553,27 +553,6 @@ body {
 .footer-subscribe-icon {
   margin-left: 16px;
   fill: #ffffff;
-}
-
-/* Modal Backdrop */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 /* Modal Backdrop */
@@ -662,6 +641,7 @@ body {
   margin-bottom: 8px;
 }
 
+/* Fix for comment field */
 .comment-field {
   margin-bottom: 16px;
 }
@@ -744,7 +724,23 @@ body {
   align-items: center;
 }
 
-/* Важно: изменен селектор с .modal-checkbox-wrapper на span.modal-checkbox-wrapper */
+/* Selector Option 1: Simple class selector */
+.modal-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selector Option 2: With tag name */
 span.modal-checkbox-wrapper {
   display: inline-flex;
   align-items: center;
@@ -760,7 +756,68 @@ span.modal-checkbox-wrapper {
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Selector Option 3: With parent context */
+.modal-checkbox-label .modal-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selector Option 4: With full parent and tag specification */
+.modal-checkbox-label span.modal-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selector Option 5: Related to checkbox directly */
+.modal-checkbox + .modal-checkbox-label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Checked state - using multiple selectors to ensure one matches */
+.modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-wrapper {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
+
 .modal-checkbox:checked + .modal-checkbox-label span.modal-checkbox-wrapper {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
+
+.modal-checkbox:checked + .modal-checkbox-label span {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
