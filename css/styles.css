@@ -508,10 +508,11 @@ body {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 12px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  line-height: 2; /* Добавлен line-height: 2 /
+letter-spacing: 0.04em;
+color: #ffffff;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); / Добавлен box-shadow */
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -640,6 +641,11 @@ body {
   margin-bottom: 8px;
 }
 
+/* Исправление для поля комментария */
+.comment-field {
+  margin-bottom: 16px;
+}
+
 .modal-label {
   display: block;
   font-size: 12px;
@@ -719,7 +725,7 @@ body {
 }
 
 .modal-checkbox-wrapper {
-  display: inline-flex;
+  display: inline-flex; /* Исправлено на inline-flex */
   align-items: center;
   justify-content: center;
   width: 16px;
@@ -729,13 +735,13 @@ body {
   margin-right: 8px;
   fill: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-wrapper {
   background-color: #404bbf;
-  border-color: #404bbf;
+  border: none; /* Добавлено border: none */
   fill: #f4f4fd;
 }
 
