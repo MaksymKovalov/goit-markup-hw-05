@@ -658,6 +658,9 @@ body {
 }
 
 /* Modal Backdrop */
+.modal-form span {
+  display: inline-flex;
+}
 .backdrop {
   position: fixed;
   top: 0;
@@ -741,6 +744,7 @@ body {
 }
 
 /* Modal Form Elements */
+
 .modal-field {
   margin-bottom: 8px;
 }
