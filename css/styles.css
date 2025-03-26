@@ -834,8 +834,7 @@ body {
   align-items: center;
 }
 
-/* Checkbox Wrapper Span - critical element */
-span.modal-checkbox-wrapper {
+.modal-checkbox-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -851,7 +850,7 @@ span.modal-checkbox-wrapper {
 }
 
 /* Checked state */
-.modal-checkbox:checked + .modal-checkbox-label span.modal-checkbox-wrapper {
+.modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-wrapper {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
